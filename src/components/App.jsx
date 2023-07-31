@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component} from "react";
 import { nanoid } from 'nanoid'
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
@@ -44,7 +44,20 @@ export class App extends Component{
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
+  componentDidMount (){
+    const contacts = localStorage.getItem("contacts");
+    const parsedContacts = JSON.parse(contacts)
+    if(parsedContacts){
+      this.setState({contacts: parsedContacts})
+    }
+  }
+  componentDidUpdate (prevProps, prevState){
+    const {contacts} = this.state
+    if(contacts !== prevState.contacts){
+      localStorage.setItem("contacts", JSON.stringify(contacts))
+    }
 
+  }
   render() {
     const { contacts, filter } = this.state;
     return (

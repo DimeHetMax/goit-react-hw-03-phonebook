@@ -1,6 +1,6 @@
 .phoneItem{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 300px;
     align-items: center;
 
