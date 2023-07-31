@@ -12,15 +12,15 @@ export class ContactList extends React.Component {
     const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
 
     return (
-      <ul>
+      <ul className={css.list}>
         {filter === '' ? (
           contacts.map(({ name, phone, id }) => 
-          {return <li className ={css.phoneItem}key={id}><p>{name}: {phone}</p><button onClick={() => this.handleDeleteContact(id)}>Delete</button></li>;}
+          {return <li className ={css.phoneItem}key={id}><p>{name}: {phone}</p><button type='button' className={css.button} onClick={() => this.handleDeleteContact(id)}>Delete</button></li>;}
           )
         ) : (
           filteredContacts.map(({ id, name, phone }) => 
           
-          {return <li key={id}><p>{name}: {phone}</p><button onClick={() => this.handleDeleteContact(id)}>Delete</button></li>;}
+          {return <li key={id}><p>{name}: {phone}</p><button type='button' className={css.button} onClick={() => this.handleDeleteContact(id)}>Delete</button></li>;}
           )
         )}
       </ul>

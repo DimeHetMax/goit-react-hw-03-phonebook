@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid'
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
+import "../index.css"
 // import { ContactItem } from "./ContactItem/ContactItem";
 
 export class App extends Component{
@@ -61,7 +62,7 @@ export class App extends Component{
   render() {
     const { contacts, filter } = this.state;
     return (
-      <div>
+      <div className="container">
         <h1>Phonebook</h1>
         <ContactForm addContact={this.addContact} />
         <h2>Contacts</h2>
