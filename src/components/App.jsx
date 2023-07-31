@@ -18,7 +18,6 @@ export class App extends Component{
     const phone = event.target.elements.number.value;
     const contacts = this.state.contacts;
     const existingContact = contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase());
-    console.log(existingContact)
     if (existingContact) {
       alert('This name already exists in the phonebook!');
       return;
@@ -67,7 +66,7 @@ export class App extends Component{
         <ContactForm addContact={this.addContact} />
         <h2>Contacts</h2>
         <Filter filter={filter} handleFilterChange={this.handleFilterChange} />
-        <ContactList contacts={contacts} filter={filter} deleteContact={this.deleteContact} />
+        <ContactList contacts={contacts} filter={filter} deleteContact={this.deleteContact} />   
       </div>
     );
   }

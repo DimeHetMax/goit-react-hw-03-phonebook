@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import css from "./ContactList.module.css"
 
   
@@ -26,4 +27,14 @@ export class ContactList extends React.Component {
       </ul>
     );
   }
+}
+
+ContactList.propTypes ={
+  contacts: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  })),
+  filter: PropTypes.string.isRequired,
+  deleteContact: PropTypes.func.isRequired,
 }
